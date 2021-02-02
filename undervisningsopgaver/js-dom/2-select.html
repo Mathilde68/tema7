@@ -47,15 +47,15 @@
         <h2>Undertitel</h2>
         <section>
 
-            <article>
+            <article id="article1">
 
-                <img src="https://placeimg.com/600/500/any" alt="">
+                <img src="https://placeimg.com/600/500/any" alt="this is a image">
                 <h3>Article 1</h3>
                 <p>Smelly cheese queso mozzarella. Bocconcini feta cheese on toast monterey jack emmental babybel macaroni cheese fromage. Brie blue castello melted cheese cheddar when the cheese comes out everybody's happy lancashire cheese slices boursin. Queso dolcelatte st. agur blue cheese manchego cream cheese croque monsieur fromage cheesy feet. Queso brie cauliflower cheese cheese on toast stinking bishop cut the cheese jarlsberg dolcelatte. Cheese strings cheese on toast stilton goat cow airedale port-salut fromage frais. Taleggio emmental feta goat port-salut croque monsieur.</p>
             </article>
-            <article>
+            <article id="article2">
 
-                <img src="https://placeimg.com/600/500/nature" alt="">
+                <img src="https://placeimg.com/600/500/nature" alt="this is a nature image">
                 <h3>Article 2</h3>
                 <p>Don't piddle with them -- don't worry about them. Soft as a meadow. You know me -- I love water. Maybe we'll do some almighty mountains today. Where do the clouds live in your world? As usual, Bob's gonna do a big tree. Just make little X's, and we'll put in a happy little sky. Get nervous. This is how you make a giant cartoon figure. The round brush is so fun, let's go back to that. Today's such a wonderful day, let's just make a happy little painting. Throw in some happy little things wherever you want them. I wanna be careful to not let the color go past the tape. Isn't life wonderful?</p>
             </article>
@@ -63,7 +63,42 @@
     </main>
     <footer> This is a footer</footer>
     <script>
+        const titel = document.querySelector("h1");
+        console.log(titel);
 
+        const undertitel = document.querySelector("h2");
+        console.log(undertitel);
+
+        const section = document.querySelector("section");
+        console.log(section);
+
+        const article1 = document.querySelector("article");
+        console.log(article1);
+
+        const img1 = document.querySelector("article img");
+        console.log(img1);
+
+        const underoverskrift1 = document.querySelector("article h3");
+        console.log(underoverskrift1);
+
+        const tekst1 = document.querySelector("article p");
+        console.log(tekst1);
+
+
+        const article2 = document.querySelector("article + article");
+        console.log(article2);
+
+        const img2 = document.querySelector("article + article img");
+        console.log(img2);
+
+        const underoverskrift2 = document.querySelector("article + article h3");
+        console.log(underoverskrift2);
+
+        const tekst2 = document.querySelector("article + article p");
+        console.log(tekst2);
+
+        const footer = document.querySelector("footer");
+        console.log(footer);
     </script>
 </body>
 
