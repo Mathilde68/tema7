@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+        }
+
+
+        img {
+            width: 100%;
+        }
+
+
+        article {
+
+            border: 1px solid black;
+        }
+
+        h1,
+        footer {
+            text-align: center;
+        }
+
+        header,
+        footer {
+            border: 1px solid black;
+            padding: 10px 0;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2>Undertitel</h2>
+        <section>
+
+            <article id="article1">
+
+                <img src="https://placeimg.com/600/500/any" alt="this is a image">
+                <h3>Article 1</h3>
+                <p>Smelly cheese queso mozzarella. Bocconcini feta cheese on toast monterey jack emmental babybel macaroni cheese fromage. Brie blue castello melted cheese cheddar when the cheese comes out everybody's happy lancashire cheese slices boursin. Queso dolcelatte st. agur blue cheese manchego cream cheese croque monsieur fromage cheesy feet. Queso brie cauliflower cheese cheese on toast stinking bishop cut the cheese jarlsberg dolcelatte. Cheese strings cheese on toast stilton goat cow airedale port-salut fromage frais. Taleggio emmental feta goat port-salut croque monsieur.</p>
+            </article>
+            <article id="article2">
+
+                <img src="https://placeimg.com/600/500/nature" alt="this is a nature image">
+                <h3>Article 2</h3>
+                <p>Don't piddle with them -- don't worry about them. Soft as a meadow. You know me -- I love water. Maybe we'll do some almighty mountains today. Where do the clouds live in your world? As usual, Bob's gonna do a big tree. Just make little X's, and we'll put in a happy little sky. Get nervous. This is how you make a giant cartoon figure. The round brush is so fun, let's go back to that. Today's such a wonderful day, let's just make a happy little painting. Throw in some happy little things wherever you want them. I wanna be careful to not let the color go past the tape. Isn't life wonderful?</p>
+            </article>
+        </section>
+    </main>
+    <footer> This is a footer</footer>
+    <script>
+        const titel = document.querySelector("h1");
+        console.log(titel.textContent);
+
+        const undertitel = document.querySelector("h2");
+        console.log(undertitel.textContent);
+
+        const section = document.querySelector("section");
+        console.log(section);
+
+        const article1 = document.querySelector("article");
+        console.log(article1);
+
+        const img1 = document.querySelector("article img");
+        console.log(img1);
+
+        const underoverskrift1 = document.querySelector("article h3");
+
+
+        const tekst1 = document.querySelector("article p");
+        console.log(tekst1);
+
+
+        const article2 = document.querySelector("article + article");
+        console.log(article2);
+
+        const img2 = document.querySelector("article + article img");
+        console.log(img2);
+
+        const underoverskrift2 = document.querySelector("article + article h3");
+        console.log(underoverskrift2);
+
+        const tekst2 = document.querySelector("article + article p");
+        console.log(tekst2);
+
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+
+titel.textContent = "This a fine new title";
+underoverskrift1.innerHTML = "Article N. 1";
+underoverskrift2.innerHTML = "Article N. 2";
+tekst1.innerHTML="It’s about making placeholder text great again. That’s what people want, they want placeholder text to be great again. You know, it really doesn’t matter what you write as long as you’ve got a young, and beautiful, piece of text. If Trump Ipsum weren’t my own words, perhaps I’d be dating it. All of the words in Lorem Ipsum have flirted with me - consciously or unconsciously. That's to be expected. Lorem Ipsum is unattractive, both inside and out. I fully understand why it’s former users left it for something else. They made a good decision. We have so many things that we have to do better... and certainly ipsum is one of them."
+
+tekst2.innerHTML="And maybe, maybe, maybe... Go out on a limb - that's where the fruit is. Learn when to stop. We don't have anything but happy trees here. That's the way I look when I get home late; black and blue. You need to have a very firm paint to do this. Very easy to work these to death. Let your imagination just wonder around when you're doing these things. Let's build an almighty mountain. Let your imagination be your guide. Only God can make a tree - but you can paint one. You have to allow the paint to break to make it beautiful."
+
+    </script>
+</body>
+
+</html>
