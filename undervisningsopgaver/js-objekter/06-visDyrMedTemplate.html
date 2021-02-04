@@ -7,33 +7,58 @@
     <title></title>
     <link rel="stylesheet" href="">
     <style>
-        article{
+        article {
             border: 3px dotted #40863d;
             margin: 10px;
             padding-left: 10px;
         }
+
     </style>
 </head>
 
 <body>
-<section></section>
-<template>
-   <article>
-        <h3></h3>
-        <img src="" alt="">
-        <p></p>
-        <p></p>
-    </article>
-</template>
+    <section></section>
+    <template>
+        <article>
+            <h3></h3>
+            <img src="" alt="">
+            <p></p>
+            <p></p>
+        </article>
+    </template>
 
     <script>
-
-        let dyr = [
-            {"navn": "Gris","type": "pattedyr","billede": "http://mabe-kea.dk/E19/pics/pig.png","levested": "en gård"},
-            {"navn": "Frø","type": "amfibie","billede": "http://mabe-kea.dk/E19/pics/frog.png","levested": "vandhuller"},
-            {"navn": "Ræv","type": "pattedyr","billede": "http://mabe-kea.dk/E19/pics/fox.png","levested": "skoven"},
-            {"navn": "Sild","type": "fisk","billede": "http://mabe-kea.dk/E19/pics/sild.jpg","levested": "havet"},
-            {"navn": "Krokodille","type": "krybdyr","billede": "http://mabe-kea.dk/E19/pics/kroko.jpg","levested": "floden"}];
+        let dyr = [{
+                "navn": "Gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "en gård"
+            },
+            {
+                "navn": "Frø",
+                "type": "amfibie",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+                "levested": "vandhuller"
+            },
+            {
+                "navn": "Ræv",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+                "levested": "skoven"
+            },
+            {
+                "navn": "Sild",
+                "type": "fisk",
+                "billede": "http://mabe-kea.dk/E19/pics/sild.jpg",
+                "levested": "havet"
+            },
+            {
+                "navn": "Krokodille",
+                "type": "krybdyr",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+                "levested": "floden"
+            }
+        ];
 
 
 
@@ -44,7 +69,7 @@
             const section = document.querySelector("section");
             const dyrTemplate = document.querySelector("template");
 
-            dyr.forEach(dyr =>{
+            dyr.forEach(dyr => {
                 let templateClone = dyrTemplate.cloneNode(true).content;
 
                 templateClone.querySelector("h3").textContent = dyr.navn;
