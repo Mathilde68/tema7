@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        article{
+            border: 3px dotted #40863d;
+            margin: 10px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<section></section>
+<template>
+   <article>
+        <h3></h3>
+        <img src="" alt="">
+        <p></p>
+        <p></p>
+    </article>
+</template>
+
+    <script>
+
+        let dyr = [
+            {"navn": "Gris","type": "pattedyr","billede": "http://mabe-kea.dk/E19/pics/pig.png","levested": "en gård"},
+            {"navn": "Frø","type": "amfibie","billede": "http://mabe-kea.dk/E19/pics/frog.png","levested": "vandhuller"},
+            {"navn": "Ræv","type": "pattedyr","billede": "http://mabe-kea.dk/E19/pics/fox.png","levested": "skoven"},
+            {"navn": "Sild","type": "fisk","billede": "http://mabe-kea.dk/E19/pics/sild.jpg","levested": "havet"},
+            {"navn": "Krokodille","type": "krybdyr","billede": "http://mabe-kea.dk/E19/pics/kroko.jpg","levested": "floden"}];
+
+
+
+        document.addEventListener('DOMContentLoaded', start);
+
+        function start() {
+            console.log("i work");
+            const section = document.querySelector("section");
+            const dyrTemplate = document.querySelector("template");
+
+            dyr.forEach(dyr =>{
+                let templateClone = dyrTemplate.cloneNode(true).content;
+
+                templateClone.querySelector("h3").textContent = dyr.navn;
+                templateClone.querySelector("img").src = dyr.billede;
+                templateClone.querySelector("p").textContent = `Type: ${dyr.type}`;
+                templateClone.querySelector("p:nth-child(4)").textContent = `Levested: ${dyr.levested}`;
+                section.appendChild(templateClone);
+
+
+
+            });
+
+
+        }
+
+    </script>
+</body>
+
+</html>
