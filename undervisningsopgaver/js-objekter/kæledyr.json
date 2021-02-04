@@ -1,0 +1,19 @@
+[{
+        "dyr": "Nymfeparakit",
+        "art": "Lille papegøje",
+        "levetid": "15 - 25 år",
+        "foder": ["frø","grønt","frugt"]
+            },
+    {
+        "dyr": "Marsvin",
+        "art": "Gnaver",
+        "levetid": "4-8 år",
+        "foder": ["hø","foderpiller","grønt"]
+            },
+    {
+        "dyr": "Yemenkamæleon",
+        "art": "Krybdyr",
+        "levetid": "7 år",
+        "foder": ["insekter","grønt"]
+            }
+        ]
