@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <article>
+        <h3></h3>
+        <img src="" alt="">
+        <p>Type: </p>
+        <p>Levested: </p>
+    </article>
+    <script>
+        let article = document.querySelector("article");
+        let dyr = {
+            "navn": "Nymfeparakit",
+            "type": "Fugl",
+            "billede": "coco.jpg",
+            "levested": "Australien"
+        };
+        console.log(dyr);
+        console.log(`Dyr:${dyr.navn} Type:${dyr.type} Levested:${dyr.levested}`);
+
+        document.addEventListener('DOMContentLoaded', start);
+
+        function start() {
+            article.querySelector("h3").textContent = dyr.navn;
+            article.querySelector("img").src = dyr.billede;
+            article.querySelector("p").textContent += dyr.type;
+            article.querySelector("p:nth-child(4)").textContent += dyr.levested;
+
+        }
+
+    </script>
+</body>
+
+</html>
