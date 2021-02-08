@@ -5,18 +5,61 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="">
+    <style>
+        img {
+            width: 100%;
+        }
+
+        #menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 1em;
+            margin: 2em;
+        }
+
+        .ret {
+            padding: 1em;
+            border: 1px solid;
+            border-radius: 1em;
+        }
+
+        .om {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .knap {
+            display: inline-block;
+            background-color: white;
+            color: black;
+            border: 2px solid #f5a510;
+            border-radius: 8px;
+
+        }
+
+        .knap:hover {
+            background-color: #f5a510;
+            color: white;
+        }
+
+        .valgt {
+            background-color: #f5a510;
+            color: white;
+            border: 2px solid #f5a510;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Alle</h1>
     <nav>
-        <button data-kategori="alle">Alle retter</button>
-        <button data-kategori="forretter">Forretter</button>
-        <button data-kategori="hovedretter">Hovedretter</button>
-        <button data-kategori="sideorders">Sideorders</button>
-        <button data-kategori="desserter">Desserter</button>
-        <button data-kategori="drikkevarer">Drikkevarer</button>
+        <button data-kategori="alle" class="knap valgt">Alle retter</button>
+        <button data-kategori="forretter" class="knap">Forretter</button>
+        <button data-kategori="hovedretter" class="knap">Hovedretter</button>
+        <button data-kategori="sideorders" class="knap">Sideorders</button>
+        <button data-kategori="desserter" class="knap">Desserter</button>
+        <button data-kategori="drikkevarer" class="knap">Drikkevarer</button>
     </nav>
     <section id="menu"></section>
 
@@ -24,22 +67,41 @@
         <article class="ret">
             <h2 class="navn"></h2>
             <img src="" alt="" class="billede">
-            <p class="pris"></p>
+            <div class="om">
+                <p class="pris"></p>
+                <button id="seMere" class="knap"></button>
+            </div>
         </article>
     </template>
     <script>
+
         const header = document.querySelector("h1");
+        let retter;
+        let filter = "alle";
+
+        //loading in json data
         const url = "https://babushka-dd8a.restdb.io/rest/menu";
-        const medieurl = "https://babushka-dd8a.restdb.io/media";
+        let medieurl = "https://babushka-dd8a.restdb.io/media/";
+
 
         const options = {
             headers: {
-                "x-apikey": "600ec2fb1346a1524ff12de4"
+                'x-apikey': "600ec2fb1346a1524ff12de4"
             }
-
         }
 
-        let retter;
+
+
+
+        async function loadJSON() {
+            const JSONData = await fetch(url, options);
+            retter = await JSONData.json();
+            console.log(retter);
+            visRetter();
+        }
+
+
+
 
 
         document.addEventListener("DOMContentLoaded", start)
@@ -52,18 +114,30 @@
 
         function filtrerMenu() {
             console.log(this.textContent);
-        }
-        async function loadJSON() {
-            const JSONData = await fetch(url, options);
-            retter = await JSONData.json();
-            console.log(retter);
+            filter = this.dataset.kategori;
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt");
             visRetter();
+            header.textContent = this.textContent;
         }
 
-function visRetter(){
 
+        function visRetter() {
+ const template = document.querySelector("template");
+        const section = document.querySelector("section");
+            section.textContent = "";
+
+                retter.forEach(ret => {
+if (filter == ret.kategori || filter == "alle") {
+                    const klon = template.cloneNode(true).content;
+                    klon.querySelector(".navn").textContent = ret.navn;
+                    klon.querySelector("img").src = medieurl + ret.billede;
+                    klon.querySelector(".pris").textContent = "Pris: " + ret.pris + " kr";
+                    klon.querySelector("#seMere").textContent = "Se mere";
+                    section.appendChild(klon);
 }
+                });
 
-
+        }
     </script>
 </body></html>
