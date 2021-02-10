@@ -17,7 +17,7 @@
             margin: 2em;
         }
 
-        .ret {
+        .retten {
             padding: 1em;
             border: 1px solid;
             border-radius: 1em;
@@ -48,12 +48,17 @@
             border: 2px solid #f5a510;
             border-radius: 8px;
         }
+
     </style>
 </head>
 
 <body>
+
+   <header>
+<nav></nav>
+</header>
     <h1>Alle</h1>
-    <nav>
+    <nav id="filter">
         <button data-kategori="alle" class="knap valgt">Alle retter</button>
         <button data-kategori="forretter" class="knap">Forretter</button>
         <button data-kategori="hovedretter" class="knap">Hovedretter</button>
@@ -64,24 +69,23 @@
     <section id="menu"></section>
 
     <template>
-        <article class="ret">
+        <article class="retten">
             <h2 class="navn"></h2>
             <img src="" alt="" class="billede">
             <div class="om">
                 <p class="pris"></p>
-                <button id="seMere" class="knap"></button>
+                 <p class="beskrivelse"></p>
             </div>
         </article>
     </template>
     <script>
-
         const h1 = document.querySelector("h1");
         let retter;
         let filter = "alle";
 
         //loading in json data
         const url = "https://babushka-dd8a.restdb.io/rest/menu";
-        let medieurl = "https://babushka-dd8a.restdb.io/media/";
+        const medieurl = "https://babushka-dd8a.restdb.io/media/";
 
 
         const options = {
@@ -101,13 +105,10 @@
         }
 
 
-
-
-
         document.addEventListener("DOMContentLoaded", start)
 
         function start() {
-            const filterKnapper = document.querySelectorAll("nav button");
+            const filterKnapper = document.querySelectorAll("#filter button");
             filterKnapper.forEach(knap => knap.addEventListener("click", filtrerMenu));
             loadJSON();
         }
@@ -123,21 +124,31 @@
 
 
         function visRetter() {
- const template = document.querySelector("template");
-        const section = document.querySelector("section");
+            const template = document.querySelector("template");
+            const section = document.querySelector("section");
             section.textContent = "";
 
-                retter.forEach(ret => {
-if (filter == ret.kategori || filter == "alle") {
+            retter.forEach(ret => {
+                if (filter == ret.kategori || filter == "alle") {
                     const klon = template.cloneNode(true).content;
                     klon.querySelector(".navn").textContent = ret.navn;
                     klon.querySelector("img").src = medieurl + ret.billede;
                     klon.querySelector(".pris").textContent = "Pris: " + ret.pris + " kr";
-                    klon.querySelector("#seMere").textContent = "Se mere";
+                    klon.querySelector(".beskrivelse").textContent = ret.kortbeskrivelse;
+                     klon.querySelector(".retten").addEventListener("click",() => visDetaljer(ret));
+
                     section.appendChild(klon);
-}
-                });
+                }
+            });
 
         }
+
+
+      function  visDetaljer (mad){
+            location.href = `detalje.html?id=${mad._id}`;
+        }
+
     </script>
-</body></html>
+</body>
+
+</html>
