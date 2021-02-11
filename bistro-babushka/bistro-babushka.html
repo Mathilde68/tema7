@@ -4,60 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <style>
-        img {
-            width: 100%;
-        }
-
-        #menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 1em;
-            margin: 2em;
-        }
-
-        .retten {
-            padding: 1em;
-            border: 1px solid;
-            border-radius: 1em;
-        }
-
-        .om {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .knap {
-            display: inline-block;
-            background-color: white;
-            color: black;
-            border: 2px solid #f5a510;
-            border-radius: 8px;
-
-        }
-
-        .knap:hover {
-            background-color: #f5a510;
-            color: white;
-        }
-
-        .valgt {
-            background-color: #f5a510;
-            color: white;
-            border: 2px solid #f5a510;
-            border-radius: 8px;
-        }
-
-    </style>
+    <title>Bistro Babushka</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Hammersmith+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-   <header>
+<header>
 <nav></nav>
 </header>
-    <h1>Alle</h1>
+  <section id="splash">
+      <h1 id="title">Bistro <span>Babushka</span></h1>
+  </section>
+
+<section id="sections-1">
+  <h1>Menu</h1>
+
+   <h2 id="filterNavn">Alle</h2>
     <nav id="filter">
         <button data-kategori="alle" class="knap valgt">Alle retter</button>
         <button data-kategori="forretter" class="knap">Forretter</button>
@@ -65,21 +30,27 @@
         <button data-kategori="sideorders" class="knap">Sideorders</button>
         <button data-kategori="desserter" class="knap">Desserter</button>
         <button data-kategori="drikkevarer" class="knap">Drikkevarer</button>
-    </nav>
-    <section id="menu"></section>
+    </nav></section>
 
+    <section id="menuen"></section>
+
+<footer>
+    <p>This is a footer</p>
+<p></p>
+<a href="#splash">Til toppen</a>
+</footer>
     <template>
         <article class="retten">
             <h2 class="navn"></h2>
             <img src="" alt="" class="billede">
             <div class="om">
-                <p class="pris"></p>
+                <h3 class="pris"></h3>
                  <p class="beskrivelse"></p>
             </div>
         </article>
     </template>
     <script>
-        const h1 = document.querySelector("h1");
+        const h2 = document.querySelector("h2");
         let retter;
         let filter = "alle";
 
@@ -119,13 +90,13 @@
             document.querySelector(".valgt").classList.remove("valgt");
             this.classList.add("valgt");
             visRetter();
-            h1.textContent = this.textContent;
+            h2.textContent = this.textContent;
         }
 
 
         function visRetter() {
             const template = document.querySelector("template");
-            const section = document.querySelector("section");
+            const section = document.querySelector("#menuen");
             section.textContent = "";
 
             retter.forEach(ret => {
@@ -133,7 +104,7 @@
                     const klon = template.cloneNode(true).content;
                     klon.querySelector(".navn").textContent = ret.navn;
                     klon.querySelector("img").src = medieurl + ret.billede;
-                    klon.querySelector(".pris").textContent = "Pris: " + ret.pris + " kr";
+                    klon.querySelector(".pris").textContent = "Pris: " +ret.pris + " kr";
                     klon.querySelector(".beskrivelse").textContent = ret.kortbeskrivelse;
                      klon.querySelector(".retten").addEventListener("click",() => visDetaljer(ret));
 

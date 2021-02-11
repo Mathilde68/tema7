@@ -4,17 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="">
+    <title>Bistro Babushka</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Hammersmith+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<button>&larr;</button>
+<p id="back-button">&#8678;</p>
     <article class="ret">
         <h2 class="navn"></h2>
         <img src="" alt="" class="billede">
         <div class="om">
-            <p class="pris"></p>
+            <h3 class="pris"></h3>
             <p class="beskrivelse"></p>
         </div>
     </article>
@@ -48,7 +50,7 @@
             document.querySelector("img").src = medieurl + ret.billede;
             document.querySelector(".pris").textContent = "Pris: " + ret.pris + " kr";
             document.querySelector(".beskrivelse").textContent = ret.langbeskrivelse;
-            document.querySelector("button").addEventListener("click", tilbage)
+            document.querySelector("#back-button").addEventListener("click", tilbage)
         }
 
         function tilbage() {
