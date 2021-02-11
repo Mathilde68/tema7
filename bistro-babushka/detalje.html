@@ -5,21 +5,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Babushka</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Hammersmith+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Hammersmith+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<p id="back-button">&#8678;</p>
+    <p id="back-button">&#8678;</p>
     <article class="ret">
-        <h2 class="navn"></h2>
-        <img src="" alt="" class="billede">
-        <div class="om">
+        <div class="retinfo1">
+            <h2 class="navn"></h2>
+            <img src="" alt="" class="billede">
+        </div>
+        <div class="retinfo2">
             <h3 class="pris"></h3>
             <p class="beskrivelse"></p>
         </div>
     </article>
+
+  <footer>
+        <div class="info" id="kontakt">
+            <h3>Kontakt:</h3>
+            <p>Telefon: +45 26 45 00 04</p>
+            <p>Email: babushka-matryoshka@bistro.com</p>
+            <p>Adresse: Lorem Vodkavej 24, 4000 Ipsum</p>
+        </div>
+
+        <div class="info" id="Åbning">
+            <h3>Åbningstider:</h3>
+            <p>Tirsdag - Fredag: 16:00 - 21:00</p>
+            <p>Lørdag - Søndag: 15:00 - 20:00</p>
+            <p>Mandag: lukket</p>
+        </div>
+        <div class="up"> <a id="up-button" href="#splash">Til toppen</a> </div>
+
+    </footer>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");

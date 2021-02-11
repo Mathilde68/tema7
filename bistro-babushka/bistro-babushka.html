@@ -5,47 +5,60 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Babushka</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Barrio&family=Hammersmith+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Hammersmith+One&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<nav></nav>
-</header>
-  <section id="splash">
-      <h1 id="title">Bistro <span>Babushka</span></h1>
-  </section>
+    <header>
+        <nav></nav>
+    </header>
+    <section id="splash">
+        <h1 id="title">Bistro <span>Babushka</span></h1>
+    </section>
 
-<section id="sections-1">
-  <h1>Menu</h1>
+    <section id="section-1">
+        <h1 id="menu">Menu:</h1>
 
-   <h2 id="filterNavn">Alle</h2>
-    <nav id="filter">
-        <button data-kategori="alle" class="knap valgt">Alle retter</button>
-        <button data-kategori="forretter" class="knap">Forretter</button>
-        <button data-kategori="hovedretter" class="knap">Hovedretter</button>
-        <button data-kategori="sideorders" class="knap">Sideorders</button>
-        <button data-kategori="desserter" class="knap">Desserter</button>
-        <button data-kategori="drikkevarer" class="knap">Drikkevarer</button>
-    </nav></section>
+        <h2 id="filterNavn">Alle retter</h2>
+        <nav id="filter">
+            <button data-kategori="alle" class="knap valgt">Alle retter</button>
+            <button data-kategori="forretter" class="knap">Forretter</button>
+            <button data-kategori="hovedretter" class="knap">Hovedretter</button>
+            <button data-kategori="sideorders" class="knap">Sideorders</button>
+            <button data-kategori="desserter" class="knap">Desserter</button>
+            <button data-kategori="drikkevarer" class="knap">Drikkevarer</button>
+        </nav>
+    </section>
 
-    <section id="menuen"></section>
+    <section id="section-2"></section>
 
-<footer>
-    <p>This is a footer</p>
-<p></p>
-<a href="#splash">Til toppen</a>
-</footer>
+    <footer>
+        <div class="info" id="kontakt">
+            <h3>Kontakt:</h3>
+            <p>Telefon: +45 26 45 00 04</p>
+            <p>Email: babushka-matryoshka@bistro.com</p>
+            <p>Adresse: Lorem Vodkavej 24, 4000 Ipsum</p>
+        </div>
+
+        <div class="info" id="Åbning">
+            <h3>Åbningstider:</h3>
+            <p>Tirsdag - Fredag: 16:00 - 21:00</p>
+            <p>Lørdag - Søndag: 15:00 - 20:00</p>
+            <p>Mandag: lukket</p>
+        </div>
+        <div class="up"> <a id="up-button" href="#splash">Til toppen</a> </div>
+
+    </footer>
     <template>
         <article class="retten">
             <h2 class="navn"></h2>
             <img src="" alt="" class="billede">
             <div class="om">
+                <p class="beskrivelse"></p>
                 <h3 class="pris"></h3>
-                 <p class="beskrivelse"></p>
             </div>
         </article>
     </template>
@@ -96,7 +109,7 @@
 
         function visRetter() {
             const template = document.querySelector("template");
-            const section = document.querySelector("#menuen");
+            const section = document.querySelector("#section-2");
             section.textContent = "";
 
             retter.forEach(ret => {
@@ -104,9 +117,9 @@
                     const klon = template.cloneNode(true).content;
                     klon.querySelector(".navn").textContent = ret.navn;
                     klon.querySelector("img").src = medieurl + ret.billede;
-                    klon.querySelector(".pris").textContent = "Pris: " +ret.pris + " kr";
+                    klon.querySelector(".pris").textContent = "Pris: " + ret.pris + " kr";
                     klon.querySelector(".beskrivelse").textContent = ret.kortbeskrivelse;
-                     klon.querySelector(".retten").addEventListener("click",() => visDetaljer(ret));
+                    klon.querySelector(".retten").addEventListener("click", () => visDetaljer(ret));
 
                     section.appendChild(klon);
                 }
@@ -115,7 +128,7 @@
         }
 
 
-      function  visDetaljer (mad){
+        function visDetaljer(mad) {
             location.href = `detalje.html?id=${mad._id}`;
         }
 
