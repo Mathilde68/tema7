@@ -13,7 +13,10 @@ img {
 
 /*fonts*/
 #title {
-    font-size: 4rem;
+    font-size: 7rem;
+    text-align: center;
+    padding-top:6rem;
+    margin-left:-110px;
 }
 
 span {
@@ -29,7 +32,7 @@ h1 {
 }
 
 #menu{
-    background-color: #F2952B;
+    background-color: #f7921f;
     padding:10px 40px 10px 40px;
     margin: 10px 0px 50px 0px;
 
@@ -55,6 +58,16 @@ p {
     font-size: 1rem;
     color: #1D3339;
 }
+#splash{
+    background-image: url(splash.jpg);
+    width: 100%;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 5% 2%;
+    max-width: none;
+}
+
 
 
 
@@ -74,6 +87,10 @@ p {
     justify-content: space-evenly;
     flex-wrap: wrap;
     max-width: 900px;
+}
+
+#section-1{
+    margin-top:-10px;
 }
 
 /*loop view menu-section*/
@@ -225,4 +242,37 @@ footer .up {
     cursor: pointer;
     margin:20px 0px 0px 150px;
 
+}
+
+@media (max-width:1050px) {
+
+    #menu{
+        font-size: 2rem;
+    }
+
+#filterNavn {
+
+    font-size: 1.8rem;
+
+
+
+}
+
+#title {
+    font-size: 2.6rem;
+    text-align: center;
+    padding-top:2rem;
+    padding:8px;
+    margin:0;
+}
+
+#splash{
+    background-image: url(splash.jpg);
+    width: 100%;
+    height:13vh;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 5% 2%;
+    max-width: none;
+}
 }
